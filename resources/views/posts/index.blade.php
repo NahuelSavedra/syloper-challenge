@@ -27,7 +27,7 @@
                                 <p>{{$post->descripcion}}</p>
 
                                 <footer>
-                                    <a href="/posts/{{ $post->id }}">Ver más</a>
+                                    <a href="{{route('posts.show',$post)}}">Ver más</a>
                                 </footer>
                             </div>
                         </div>
