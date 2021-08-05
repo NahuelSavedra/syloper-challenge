@@ -71,7 +71,7 @@ class PostController extends Controller
     public function update(PostRequest $request,Post $post)
     {
         $post->update($request->validated());
-        return view('posts.show',$post);
+        return view('posts.show',['post'=>$post]);
     }
 
     /**

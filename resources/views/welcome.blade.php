@@ -7,7 +7,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
         <!-- CSS -->
         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     </head>
@@ -23,11 +23,6 @@
 
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/posts">Posts
-                            <span class="visually-hidden">(current)</span>
-                        </a>
-                    </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-sm-2" type="text" placeholder="Ingrese su busqueda">
@@ -40,5 +35,6 @@
 
 
     @yield('content')
+    @stack('scripts')
     </body>
 </html>

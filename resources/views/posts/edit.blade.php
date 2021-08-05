@@ -16,6 +16,7 @@
 
         <form method="POST" action="{{route('posts.update',$post)}}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <label for="titulo">Title: </label>
             <input type="text" name="titulo"
                    @error('titulo') class="danger" @enderror

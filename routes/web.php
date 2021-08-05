@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('/posts',\App\Http\Controllers\PostController::class);
+Route::get('/',[\App\Http\Controllers\PostController::class,'index'])->name('posts.index');
+Route::post('/',[\App\Http\Controllers\PostController::class,'store'])->name('posts.store');
+Route::get('/create',[\App\Http\Controllers\PostController::class,'create'])->name('posts.create');
+Route::get('/{post}',[\App\Http\Controllers\PostController::class,'show'])->name('posts.show');
+Route::delete('/{post}',[\App\Http\Controllers\PostController::class,'destroy'])->name('posts.destroy');
+Route::get('/{post}/edit',[\App\Http\Controllers\PostController::class,'edit'])->name('posts.edit');
+Route::put('/{post}/edit',[\App\Http\Controllers\PostController::class,'update'])->name('posts.update');
 

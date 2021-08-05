@@ -1,37 +1,33 @@
 @extends('welcome')
 
 @section('content')
-    <section>
-        <div>
-            <header>
-                <h2 class="text-center m-4 ">Ultimos Posts</h2>
-            </header>
+    <section class="container">
+        <div class="row">
+                <h2 class="text-center mt-4 p-2 col">Ultimos Posts</h2>
+                <a href="{{route('posts.create')}}" class="btn btn-outline-primary col-2 m-4"><i class="fas fa-plus"></i> Crear post</a>
         </div>
     </section>
 
     <section>
-        <div>
-            <div>
-
-
+            <div class="card-group">
                 @foreach ($posts as $post)
-                    <div>
-                        <div>
-                            <div>
-                                <header>
-                                    <h2>{{ $post->titulo }}</h2>
-                                </header>
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="..." class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $post->titulo }}</h5>
+                                    <p class="card-text">{{ Str::limit($post->descripcion, 100) }}</p>
+                                    <p class="card-text"><small class="text-muted">Creado en: {{ $post->created_at->format('d M Y') }}</small></p>
+                                    <a href="{{route('posts.show',$post)}}" class="btn btn-outline-secondary">Ver más</a>
 
-                                <p>Created at:{{ $post->created_at->format('d M Y') }}</p>
-
-                                <p>{{$post->descripcion}}</p>
-
-                                <footer>
-                                    <a href="{{route('posts.show',$post)}}">Ver más</a>
-                                </footer>
+                                </div>
                             </div>
                         </div>
                     </div>
+            </div>
                 @endforeach
             </div>
             <div class="d-flex justify-content-center mb-4 btn-toolbar pagination-sm">
