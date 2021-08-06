@@ -23,11 +23,8 @@
 
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
+
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-sm-2" type="text" placeholder="Ingrese su busqueda">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
             </div>
         </div>
     </nav>

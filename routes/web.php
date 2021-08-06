@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/contact',[\App\Http\Controllers\ContactController::class,'show'])->name('contact.show');
+Route::post('/contact',[\App\Http\Controllers\ContactController::class,'store'])->name('contact.store');
+
 Route::get('/',[\App\Http\Controllers\PostController::class,'index'])->name('posts.index');
 Route::post('/',[\App\Http\Controllers\PostController::class,'store'])->name('posts.store');
 Route::get('/create',[\App\Http\Controllers\PostController::class,'create'])->name('posts.create');

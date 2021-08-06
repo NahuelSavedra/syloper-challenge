@@ -2,9 +2,13 @@
 
 @section('content')
     <section class="container">
-        <div class="row">
-                <h2 class="text-center mt-4 p-2 col">Ultimos Posts</h2>
-                <a href="{{route('posts.create')}}" class="btn btn-outline-primary col-2 m-4"><i class="fas fa-plus"></i> Crear post</a>
+                <h2 class="text-center mt-4 p-2">Ultimos Posts</h2>
+        <div class="row mb-4">
+            <a href="{{route('posts.create')}}" class="btn btn-outline-primary col-2"><i class="fas fa-plus"></i> Crear post</a>
+        <form method="GET" action="#" class="d-flex col">
+            <input class="form-control me-sm-2" name="search" value="{{request('search')}}" type="text" placeholder="Ingrese su busqueda">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
         </div>
     </section>
 

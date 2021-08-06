@@ -16,6 +16,14 @@ class Post extends Model
         'descripcion',
     ];
 
+    public function scopeFilter($query){
+        if(request('search')){
+            $query
+                -> where('titulo', 'like', '%' . request('search') . '%')
+                ->orWhere('descripcion','like','%' . request('search') . '%');
+        }
+    }
+
     public function getRouteKeyName()
     {
         return "slug";
