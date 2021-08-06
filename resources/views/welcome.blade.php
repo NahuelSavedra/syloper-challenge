@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,9 @@
 
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('contact.show')}}">Contacto</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -32,6 +34,12 @@
 
 
     @yield('content')
+
+    <footer class="navbar-dark bg-dark text-white">
+        <div class="text-center py-3">© 2021 Copyright:
+            <a class="text-white" href="https://nahuelsavedra.com/" target="_blank"> Nahuel Savedra</a>
+        </div>
+    </footer>
     @stack('scripts')
     </body>
 </html>

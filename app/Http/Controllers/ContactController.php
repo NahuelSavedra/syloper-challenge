@@ -14,6 +14,6 @@ class ContactController extends Controller
     }
     public function store(ContactRequest $request){
         Mail::to($request->email)->send(new Contact($request->nombre));
-        return "mensaje enviado";
+        return redirect('/');
     }
 }
