@@ -18,7 +18,7 @@
             @csrf
             @method('PUT')
             <div class="form-group">
-                <label for="titulo" class="form-label mt-4">Titulo</label>
+                <label for="titulo" class="form-label mt-4">Titulo:</label>
                 <input type="text" class="form-control" id="titulo" name="titulo"
                        value="{{ $post->titulo }}">
             </div>
@@ -35,7 +35,15 @@
             </div>
 
             <div class="form-group">
-                <label for="descripcion" class="form-label mt-4">Ingrese su texto</label>
+                <label for="image" class="form-label mt-4">Seleccione su imagen:</label>
+                <input class="form-control" type="file" id="image" name="image" accept="image/*">
+            </div>
+            @error('image')
+            <p class="text-danger">{{ $errors->first('image') }}</p>
+            @enderror
+
+            <div class="form-group">
+                <label for="descripcion" class="form-label mt-4">Ingrese su texto:</label>
                 <textarea class="form-control" id="descripcion" name="descripcion" rows="5">{{$post->descripcion}}</textarea>
             </div>
             @error('descripcion')

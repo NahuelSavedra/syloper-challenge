@@ -17,7 +17,7 @@
         <form method="POST" action="{{route('posts.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="titulo" class="form-label mt-4">Titulo</label>
+                <label for="titulo" class="form-label mt-4">Titulo del post:</label>
                 <input type="titulo" class="form-control" id="titulo" name="titulo" placeholder="Ingrese titulo">
             </div>
             @error('titulo')
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group">
-                <label for="image" class="form-label mt-4">Default file input example</label>
+                <label for="image" class="form-label mt-4">Seleccione su imagen:</label>
                 <input class="form-control" type="file" id="image" name="image" accept="image/*">
             </div>
             @error('image')
@@ -41,7 +41,7 @@
             @enderror
 
             <div class="form-group">
-                <label for="descripcion" class="form-label mt-4">Ingrese su texto</label>
+                <label for="descripcion" class="form-label mt-4">Ingrese su texto:</label>
                 <textarea class="form-control" id="descripcion" name="descripcion" rows="5"></textarea>
             </div>
             @error('descripcion')

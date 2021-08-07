@@ -79,6 +79,11 @@ class PostController extends Controller
     public function update(PostRequest $request,Post $post)
     {
         $post->update($request->validated());
+        if ($image = $request->file('image')){
+            $name= $image->getClientOriginalName();
+            $image->move('imagenes/',$name);
+            $post['image']=$name;
+        }
         return view('posts.show',['post'=>$post]);
     }
 

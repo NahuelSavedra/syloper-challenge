@@ -27,7 +27,7 @@ class PostRequest extends FormRequest
             'titulo' => 'required|string|max:100',
             'slug' => 'required|string|max:100',
             'descripcion' => 'required|string',
-            'image' => 'required|image'
+            'image' => 'image'
         ];
     }
     public function messages()
@@ -37,7 +37,6 @@ class PostRequest extends FormRequest
             'min' => 'El campo :attribute debe tener al menos :min caracteres',
             'max' => 'El campo :attribute no bebe superar :max caracteres',
             'image' => 'La imagen debe ser de formato .jpg, .png, etc',
-            'image.required' => 'Debe cargar una imagen para el post'
         ];
     }
 }
