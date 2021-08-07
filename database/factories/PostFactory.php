@@ -25,7 +25,7 @@ class PostFactory extends Factory
             'titulo' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
             'descripcion' => $this->faker->realText($maxNbChars = 1500),
-            'image' => $this->faker->imageUrl(),
+            'image' => $this->faker->randomElement(['default1.jpg','default2.jpg','default3.jpg']),
         ];
     }
 }

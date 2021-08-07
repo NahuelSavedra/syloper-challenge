@@ -17,8 +17,8 @@
                 @foreach ($posts as $post)
                     <div class="card mb-3">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="{{ asset("imagenes/" . $post->image) }}" class="img-fluid rounded-start" alt="imagen del post">
+                            <div class="col-md-4 thumbnail">
+                                <img src="{{ asset("imagenes/" . $post->image) }}" class="img-thumbnail rounded-start" alt="imagen del post">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
