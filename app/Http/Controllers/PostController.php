@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -35,8 +36,15 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $post = Post::create($request->validated());
-        return redirect(route('posts.show',$post));
+        $post = $request->all();
+
+        if ($image = $request->file('image')){
+            $name= $image->getClientOriginalName();
+            $image->move('imagenes/',$name);
+            $post['image']=$name;
+        }
+
+        return redirect(route('posts.show',['post' => Post::create($post)]));
     }
 
     /**

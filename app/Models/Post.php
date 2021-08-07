@@ -14,6 +14,7 @@ class Post extends Model
         'titulo',
         'slug',
         'descripcion',
+        'image',
     ];
 
     public function scopeFilter($query){

@@ -4,8 +4,9 @@
 
     <div class="container-fluid">
     <h2 class="text-center mt-4">{{ $post->titulo }}</h2>
-    <span class="text-muted">Creando en: {{$post->created_at->format('d M Y')}}</span>
-    <p class="mt-4"> {{$post-> descripcion}}</p>
+        <img src="{{asset("imagenes/".$post->image)}}" class="img-fluid">
+        <p class="mt-4"> {{$post-> descripcion}}</p>
+        <span class="text-muted">Creando en: {{$post->created_at->format('d M Y')}}</span>
     </div>
     <div class="container d-flex justify-content-end">
     <form class="d-inline-flex m-3" action="{{route('posts.destroy', ['post'=>$post])}}" method="POST">

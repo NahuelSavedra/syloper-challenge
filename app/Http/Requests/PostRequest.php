@@ -26,8 +26,8 @@ class PostRequest extends FormRequest
         return [
             'titulo' => 'required|string|max:100',
             'slug' => 'required|string|max:100',
-            'descripcion' => 'required|string'
-
+            'descripcion' => 'required|string',
+            'image' => 'required|image'
         ];
     }
     public function messages()
