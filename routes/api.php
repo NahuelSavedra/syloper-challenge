@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts',[\App\Http\Controllers\API\PostApiController::class,'index']);
-Route::get('/posts/{post}',[\App\Http\Controllers\API\PostApiController::class,'show']);
-Route::delete('/posts/{post}/delete',[\App\Http\Controllers\API\PostApiController::class,'destroy']);
+Route::apiResource('posts',\App\Http\Controllers\API\PostApiController::class);
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

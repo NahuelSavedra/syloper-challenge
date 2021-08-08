@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PostApiController extends Controller
 {
@@ -24,9 +24,10 @@ class PostApiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Post $post)
-    {
-        //
+    public function store(PostRequest $request)
+    {   
+        $post = $request->validated(); 
+        return Post::create($post)->toJson();
     }
 
     /**
@@ -47,9 +48,9 @@ class PostApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request,Post $post)
     {
-        //
+        return $post->update($request->validated());
     }
 
     /**
@@ -61,7 +62,7 @@ class PostApiController extends Controller
     public function destroy(Post $post)
     {
         $nombre = $post->titulo;
-        
+
         $post->delete();
 
         return "El post: " . $nombre . "ha sido eliminado";

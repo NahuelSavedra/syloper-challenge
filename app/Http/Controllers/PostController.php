@@ -36,7 +36,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $post = $request->all();
+        $post = $request->validated();
 
         if ($image = $request->file('image')){
             $name= $image->getClientOriginalName();
