@@ -35,7 +35,7 @@
 
     @yield('content')
 
-    <footer class="navbar-dark bg-dark text-white">
+    <footer class="navbar-dark bg-dark text-white mt-4">
         <div class="text-center py-3">© 2021 Copyright:
             <a class="text-white" href="https://nahuelsavedra.com/" target="_blank"> Nahuel Savedra</a>
         </div>

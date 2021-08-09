@@ -18,7 +18,8 @@
             @csrf
             <div class="form-group">
                 <label for="titulo" class="form-label mt-4">Titulo del post:</label>
-                <input type="titulo" class="form-control" id="titulo" name="titulo" placeholder="Ingrese titulo">
+                <input type="titulo" class="form-control" id="titulo" name="titulo" placeholder="Ingrese titulo"
+                onload="crearSlug(this.value)" onkeyup="crearSlug(this.value)" autocomplete="off">
             </div>
             @error('titulo')
             <p class="text-danger">{{ $errors->first('titulo') }}</p>
@@ -28,7 +29,7 @@
             <div class="form-group">
                 <fieldset>
                     <label class="form-label mt-4" for="slug">Slug</label>
-                    <input class="form-control" id="slug" name="slug" type="text">
+                    <input class="form-control" id="slug" name="slug" type="text" readonly="">
                 </fieldset>
             </div>
 
@@ -55,10 +56,21 @@
 @endsection()
 
 @push('scripts')
-    <script>
-    function crearURL(slug){
+    <script type="text/javascript">
+        console.log("desde script");
+
+    function crearSlug(slug) {
+
+
+    slug = slug.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase();
+
+    slug = slug.replace(/^\s+|\s+$/gm, '');
+
     slug = slug.replace(/\s+/g, '-');
-    document.getElementById("slug").innerHTML = slug;
+
+    var input = document.getElementById('slug');
+
+    input.value = slug;
     }
     </script>
 @endpush

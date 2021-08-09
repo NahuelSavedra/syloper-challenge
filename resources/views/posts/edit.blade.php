@@ -19,8 +19,9 @@
             @method('PUT')
             <div class="form-group">
                 <label for="titulo" class="form-label mt-4">Titulo:</label>
-                <input type="text" class="form-control" id="titulo" name="titulo"
-                       value="{{ $post->titulo }}">
+                <input type="text" class="form-control" id="titulo" name="titulo" value="{{ $post->titulo }}"
+                onload="crearSlug(this.value)" onkeyup="crearSlug(this.value)" autocomplete="off">
+
             </div>
             @error('titulo')
             <p class="text-danger">{{ $errors->first('titulo') }}</p>
@@ -30,7 +31,7 @@
                 <fieldset>
                     <label class="form-label mt-4" for="slug">Slug</label>
                     <input class="form-control" id="slug" name="slug" type="text"
-                           value="{{ $post->slug }}">
+                           value="{{ $post->slug }}" readonly="">
                 </fieldset>
             </div>
 
@@ -55,3 +56,23 @@
     </div>
 
 @endsection()
+
+@push('scripts')
+    <script type="text/javascript">
+        console.log("desde script");
+
+    function crearSlug(slug) {
+
+
+    slug = slug.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase();
+
+    slug = slug.replace(/^\s+|\s+$/gm, '');
+
+    slug = slug.replace(/\s+/g, '-');
+
+    var input = document.getElementById('slug');
+
+    input.value = slug;
+    }
+    </script>
+@endpush

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h2 class="text-center m-4">Contact</h2>
+    <h2 class="text-center m-4">Contacto</h2>
     <div class="container">
     <form method="POST" action=""{{route('contact.store')}}>
         @csrf
