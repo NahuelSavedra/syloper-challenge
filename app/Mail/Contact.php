@@ -18,7 +18,7 @@ class Contact extends Mailable
      *
      * @return void
      */
-    public function __construct(string $contact)
+    public function __construct(Object $contact)
     {
         $this->contact = $contact;
     }
@@ -34,7 +34,9 @@ class Contact extends Mailable
             'emails.contact',
             [
             'url' => route('posts.index'),
-            'nombre' => $this->contact,
+            'nombre' => $this->contact->nombre,
+            'comentario' => $this->contact->comentario,
+            'email' => $this->contact->email,
                 ])
             ->subject("Comentario recibido");
     }

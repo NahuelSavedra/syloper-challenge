@@ -1,7 +1,13 @@
 @component('mail::message')
-    Mensaje recibido
+    Mensaje recibido 
 
-    Estimado/a {{ $nombre }}, su comentario ya fue recibido. Muchas gracias por el aporte!
+    Estimado/a {{ $nombre }}, email: {{ $email }} su comentario:
+    
+    {{ $comentario }}
+    
+    ya fue recibido. Muchas gracias por el aporte!
+
+    
 
 @component('mail::button', ['url' => $url])
     Ir al sitio.

@@ -13,7 +13,7 @@ class ContactController extends Controller
         return view('website.contact');
     }
     public function store(ContactRequest $request){
-        Mail::to($request->email)->send(new Contact($request->nombre));
+        Mail::to($request->email)->send(new Contact($request));
         return redirect('/');
     }
 }
